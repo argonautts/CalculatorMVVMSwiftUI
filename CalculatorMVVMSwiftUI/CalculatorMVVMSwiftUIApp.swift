@@ -12,6 +12,7 @@ struct CalculatorMVVMSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             CalculatorView()
+                .environmentObject(CalculatorView.ViewModel())
         }
     }
 }

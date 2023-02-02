@@ -13,7 +13,6 @@ struct CalculatorButtonStyle: ButtonStyle {
     var backgroundColor: Color
     var foregroundColor: Color
     var isWide: Bool = false
-
     
     func makeBody(configuration: Configuration) -> some View {
             configuration.label
@@ -28,5 +27,20 @@ struct CalculatorButtonStyle: ButtonStyle {
                     }
                 }
                 .clipShape(Capsule())
+    }
+}
+
+struct CalculatorButtonStyle_Previews: PreviewProvider {
+    static let buttonType: ButtonType = .digit(.zero)
+    
+    static var previews: some View {
+        Button(buttonType.description) { }
+            .buttonStyle(CalculatorButtonStyle(
+                size: 80,
+                backgroundColor: buttonType.backgroundColor,
+                foregroundColor: buttonType.foregroundColor,
+                isWide: buttonType == .digit(.zero))
+            )
+            .padding()
     }
 }
